@@ -1,12 +1,12 @@
 <?php
 
-namespace Grafite\CrudMaker\Generators;
+namespace SierraTecnologia\CrudMaker\Generators;
 
 use Illuminate\Filesystem\Filesystem;
-use Grafite\CrudMaker\Services\FileService;
-use Grafite\CrudMaker\Services\ModelService;
-use Grafite\CrudMaker\Services\TableService;
-use Grafite\CrudMaker\Services\TestService;
+use SierraTecnologia\CrudMaker\Services\FileService;
+use SierraTecnologia\CrudMaker\Services\ModelService;
+use SierraTecnologia\CrudMaker\Services\TableService;
+use SierraTecnologia\CrudMaker\Services\TestService;
 
 /**
  * Generate the CRUD.
@@ -23,28 +23,28 @@ class CrudGenerator
     /**
      * FileService instance.
      *
-     * @var \Grafite\CrudMaker\Services\FileService
+     * @var \SierraTecnologia\CrudMaker\Services\FileService
      */
     protected $fileService;
 
     /**
      * TableService instance.
      *
-     * @var \Grafite\CrudMaker\Services\TableService
+     * @var \SierraTecnologia\CrudMaker\Services\TableService
      */
     protected $tableService;
 
     /**
      * TestService instance.
      *
-     * @var \Grafite\CrudMaker\Services\TestService
+     * @var \SierraTecnologia\CrudMaker\Services\TestService
      */
     protected $testService;
 
     /**
      * ModelService instance.
      *
-     * @var \Grafite\CrudMaker\Services\ModelService
+     * @var \SierraTecnologia\CrudMaker\Services\ModelService
      */
     protected $modelService;
 

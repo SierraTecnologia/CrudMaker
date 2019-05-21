@@ -1,6 +1,6 @@
 <?php
 
-namespace Grafite\CrudMaker\Services;
+namespace SierraTecnologia\CrudMaker\Services;
 
 class ConfigService
 {

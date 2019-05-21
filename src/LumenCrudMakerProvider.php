@@ -1,6 +1,6 @@
 <?php
 
-namespace Grafite\CrudMaker;
+namespace SierraTecnologia\CrudMaker;
 
 class LumenCrudMakerProvider extends CrudMakerProvider
 {
@@ -26,7 +26,7 @@ class LumenCrudMakerProvider extends CrudMakerProvider
         parent::register();
 
         $this->commands([
-            \Grafite\CrudMaker\Console\Publish::class,
+            \SierraTecnologia\CrudMaker\Console\Publish::class,
         ]);
     }
 }

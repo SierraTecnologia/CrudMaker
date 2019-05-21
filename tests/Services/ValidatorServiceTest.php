@@ -1,7 +1,7 @@
 <?php
 
 use org\bovigo\vfs\vfsStream;
-use Grafite\CrudMaker\Services\ValidatorService;
+use SierraTecnologia\CrudMaker\Services\ValidatorService;
 
 class ValidatorServiceTest extends TestCase
 {
@@ -13,7 +13,7 @@ class ValidatorServiceTest extends TestCase
     {
         parent::setUp();
 
-        $this->command = Mockery::mock('Grafite\CrudMaker\Console\CrudMaker');
+        $this->command = Mockery::mock('SierraTecnologia\CrudMaker\Console\CrudMaker');
         $this->validator = new ValidatorService();
         $this->config = [
             'bootstrap' => false,

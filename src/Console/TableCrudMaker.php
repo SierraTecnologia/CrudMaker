@@ -1,12 +1,12 @@
 <?php
 
-namespace Grafite\CrudMaker\Console;
+namespace SierraTecnologia\CrudMaker\Console;
 
 use Exception;
 use Illuminate\Console\DetectsApplicationNamespace;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
-use Grafite\CrudMaker\Services\TableService;
+use SierraTecnologia\CrudMaker\Services\TableService;
 
 class TableCrudMaker extends Command
 {

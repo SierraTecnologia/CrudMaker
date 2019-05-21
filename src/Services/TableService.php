@@ -1,10 +1,10 @@
 <?php
 
-namespace Grafite\CrudMaker\Services;
+namespace SierraTecnologia\CrudMaker\Services;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-use Grafite\CrudMaker\Traits\SchemaTrait;
+use SierraTecnologia\CrudMaker\Traits\SchemaTrait;
 use Faker\Factory as Faker;
 
 class TableService

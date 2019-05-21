@@ -18,7 +18,7 @@ class TestCase extends Orchestra\Testbench\TestCase
     protected function getPackageProviders($app)
     {
         return [
-            \Grafite\CrudMaker\CrudMakerProvider::class,
+            \SierraTecnologia\CrudMaker\CrudMakerProvider::class,
         ];
     }
 
@@ -35,7 +35,7 @@ class TestCase extends Orchestra\Testbench\TestCase
             '--database' => 'testbench',
         ]);
         $this->artisan('vendor:publish', [
-            '--provider' => 'Grafite\CrudMaker\CrudMakerProvider',
+            '--provider' => 'SierraTecnologia\CrudMaker\CrudMakerProvider',
             '--force' => true,
         ]);
         $this->withoutMiddleware();

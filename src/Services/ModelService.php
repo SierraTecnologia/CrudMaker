@@ -1,8 +1,8 @@
 <?php
 
-namespace Grafite\CrudMaker\Services;
+namespace SierraTecnologia\CrudMaker\Services;
 
-use Grafite\CrudMaker\Services\TableService;
+use SierraTecnologia\CrudMaker\Services\TableService;
 
 class ModelService
 {

@@ -1,5 +1,5 @@
 {
-    "name": "grafite/crudmaker",
+    "name": "sierratecnologia/crudmaker",
     "description": "An incredibly powerful and some say magical CRUD maker for Laravel",
     "license": "MIT",
     "authors": [
@@ -12,7 +12,7 @@
         "php": ">=7.0",
         "doctrine/dbal": "^2.5",
         "illuminate/support": "^5.5",
-        "grafite/formmaker": "^1.1"
+        "sierratecnologia/formmaker": "^1.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.0",
@@ -22,7 +22,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Grafite\\CrudMaker\\": "src/"
+            "SierraTecnologia\\CrudMaker\\": "src/"
         },
         "files": [
             "src/Helpers/namespace.php"
@@ -36,7 +36,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Grafite\\CrudMaker\\CrudMakerProvider"
+                "SierraTecnologia\\CrudMaker\\CrudMakerProvider"
             ]
         }
     },

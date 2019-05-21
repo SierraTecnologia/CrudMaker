@@ -1,9 +1,9 @@
 <?php
 
-namespace Grafite\CrudMaker\Services;
+namespace SierraTecnologia\CrudMaker\Services;
 
 use Exception;
-use Grafite\CrudMaker\Traits\SchemaTrait;
+use SierraTecnologia\CrudMaker\Traits\SchemaTrait;
 
 /**
  * CRUD Validator.
@@ -17,7 +17,7 @@ class ValidatorService
     /**
      * Validate the Schema.
      *
-     * @param \Grafite\CrudMaker\Console\CrudMaker $command
+     * @param \SierraTecnologia\CrudMaker\Console\CrudMaker $command
      *
      * @return bool|Exception
      */
@@ -48,7 +48,7 @@ class ValidatorService
     /**
      * Validate the options.
      *
-     * @param \Grafite\CrudMaker\Console\CrudMaker $command
+     * @param \SierraTecnologia\CrudMaker\Console\CrudMaker $command
      *
      * @return bool|Exception
      */

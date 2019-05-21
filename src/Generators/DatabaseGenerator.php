@@ -1,11 +1,11 @@
 <?php
 
-namespace Grafite\CrudMaker\Generators;
+namespace SierraTecnologia\CrudMaker\Generators;
 
 use Exception;
 use Illuminate\Filesystem\Filesystem;
-use Grafite\CrudMaker\Services\FileService;
-use Grafite\CrudMaker\Traits\SchemaTrait;
+use SierraTecnologia\CrudMaker\Services\FileService;
+use SierraTecnologia\CrudMaker\Traits\SchemaTrait;
 
 /**
  * Generate the CRUD database components.
@@ -30,7 +30,7 @@ class DatabaseGenerator
      * @param string                           $section
      * @param string                           $table
      * @param array                            $splitTable
-     * @param \Grafite\CrudMaker\Console\CrudMaker $command
+     * @param \SierraTecnologia\CrudMaker\Console\CrudMaker $command
      *
      * @return bool
      */

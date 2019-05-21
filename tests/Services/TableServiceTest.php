@@ -1,7 +1,7 @@
 <?php
 
 use org\bovigo\vfs\vfsStream;
-use Grafite\CrudMaker\Services\TableService;
+use SierraTecnologia\CrudMaker\Services\TableService;
 
 class TableServiceTest extends TestCase
 {

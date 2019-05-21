@@ -1,7 +1,7 @@
 <?php
 
 use org\bovigo\vfs\vfsStream;
-use Grafite\CrudMaker\Services\ConfigService;
+use SierraTecnologia\CrudMaker\Services\ConfigService;
 
 class ConfigServiceTest extends TestCase
 {

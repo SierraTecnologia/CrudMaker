@@ -1,8 +1,8 @@
 <?php
 
-namespace Grafite\CrudMaker\Traits;
+namespace SierraTecnologia\CrudMaker\Traits;
 
-use Grafite\CrudMaker\Services\ValidatorService;
+use SierraTecnologia\CrudMaker\Services\ValidatorService;
 
 trait SchemaTrait
 {

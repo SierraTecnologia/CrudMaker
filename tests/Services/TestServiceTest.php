@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Filesystem\Filesystem;
-use Grafite\CrudMaker\Services\TestService;
+use SierraTecnologia\CrudMaker\Services\TestService;
 
 class TestServiceTest extends TestCase
 {

@@ -1,6 +1,6 @@
 <?php
 
-use Grafite\CrudMaker\Services\ModelService;
+use SierraTecnologia\CrudMaker\Services\ModelService;
 
 class ModelServiceTest extends TestCase
 {

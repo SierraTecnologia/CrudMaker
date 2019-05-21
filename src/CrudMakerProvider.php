@@ -1,8 +1,8 @@
 <?php
 
-namespace Grafite\CrudMaker;
+namespace SierraTecnologia\CrudMaker;
 
-use Grafite\FormMaker\FormMakerProvider;
+use SierraTecnologia\FormMaker\FormMakerProvider;
 use Illuminate\Support\ServiceProvider;
 
 class CrudMakerProvider extends ServiceProvider
@@ -44,8 +44,8 @@ class CrudMakerProvider extends ServiceProvider
         */
 
         $this->commands([
-            \Grafite\CrudMaker\Console\CrudMaker::class,
-            \Grafite\CrudMaker\Console\TableCrudMaker::class,
+            \SierraTecnologia\CrudMaker\Console\CrudMaker::class,
+            \SierraTecnologia\CrudMaker\Console\TableCrudMaker::class,
         ]);
     }
 }
