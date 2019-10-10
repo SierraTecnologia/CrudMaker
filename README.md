@@ -1,5 +1,7 @@
 # CrudMaker
 
+> Unfortunately, we've decided to abandon this library. You're free to fork and maintain your own version if you like.
+
 **CrudMaker** - An incredibly powerful and some say magical CRUD maker for Laravel
 
 [![Build Status](https://travis-ci.org/SierraTecnologiaInc/CrudMaker.svg?branch=master)](https://travis-ci.org/SierraTecnologiaInc/CrudMaker)
@@ -21,7 +23,7 @@ It can generate magical CRUD prototypes rapidly with full testing scripts prepar
 
 | Laravel Version | Package Tag | Supported |
 |-----------------|-------------|-----------|
-| 5.6.x | 1.4.x | yes |
+| 5.6.x | 1.4.x | no |
 | 5.5.x | 1.3.x | no |
 | 5.4.x | 1.2.x | no |
 | 5.3.x | 1.1.x | no |
