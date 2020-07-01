@@ -3,14 +3,14 @@
 namespace SierraTecnologia\CrudMaker\Console;
 
 use Exception;
-use Illuminate\Console\DetectsApplicationNamespace;
+// use Illuminate\Console\DetectsApplicationNamespace;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use SierraTecnologia\CrudMaker\Services\TableService;
 
 class TableCrudMaker extends Command
 {
-    use DetectsApplicationNamespace;
+    // use DetectsApplicationNamespace;
 
     /**
      * The console command name.
