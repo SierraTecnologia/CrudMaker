@@ -16,7 +16,7 @@ class _camel_case_ extends Model
         // _camel_case_ table data
     ];
 
-    public static $rules = [
+    public $rules = [
         // create rules
     ];
 
