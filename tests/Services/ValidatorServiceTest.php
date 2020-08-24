@@ -9,7 +9,7 @@ class ValidatorServiceTest extends TestCase
     protected $validator;
     protected $config;
 
-    public function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 

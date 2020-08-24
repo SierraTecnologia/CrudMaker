@@ -8,7 +8,7 @@ class DatabaseGeneratorTest extends TestCase
     protected $config;
     protected $artisanMock;
 
-    public function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->generator = new DatabaseGenerator();

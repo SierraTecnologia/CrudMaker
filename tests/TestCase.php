@@ -27,7 +27,7 @@ class TestCase extends Orchestra\Testbench\TestCase
         return [];
     }
 
-    public function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->withFactories(__DIR__.'/../src/Models/Factories');

@@ -6,7 +6,7 @@ class AppServiceTest extends TestCase
 {
     protected $service;
 
-    public function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->service = app(AppService::class);

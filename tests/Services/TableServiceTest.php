@@ -8,7 +8,7 @@ class TableServiceTest extends TestCase
     protected $service;
     protected $config;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->service = new TableService();
         $this->config = [
