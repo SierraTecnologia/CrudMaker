@@ -210,7 +210,8 @@ class CrudMaker extends Command
 
         if ($this->option('asPackage')) {
             $moduleDirectory = base_path($this->option('asPackage').'/'.str_plural($table));
-            $config = array_merge($config, [
+            $config = array_merge(
+                $config, [
                 '_path_package_' => $moduleDirectory,
                 '_path_facade_' => $moduleDirectory.'/Facades',
                 '_path_service_' => $moduleDirectory.'/Services',
@@ -227,7 +228,8 @@ class CrudMaker extends Command
                 '_namespace_controller_' => $appNamespace.'\\'.ucfirst(str_plural($table)).'\Controllers',
                 '_namespace_request_' => $appNamespace.'\\'.ucfirst(str_plural($table)).'\Requests',
                 '_namespace_package_' => $appNamespace.'\\'.ucfirst(str_plural($table)),
-            ]);
+                ]
+            );
 
             if (! is_dir($moduleDirectory.'/Routes')) {
                 mkdir($moduleDirectory.'/Routes');
@@ -249,7 +251,7 @@ class CrudMaker extends Command
     /**
      * Generate a service provider for the new module.
      *
-     * @param  array $config
+     * @param array $config
      */
     public function createPackageServiceProvider($config)
     {

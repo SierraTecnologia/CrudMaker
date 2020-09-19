@@ -271,10 +271,10 @@ class CrudGenerator
     /**
      * Create the tests.
      *
-     * @param array        $config
-     * @param bool $serviceOnly
-     * @param bool $apiOnly
-     * @param bool $withApi
+     * @param array $config
+     * @param bool  $serviceOnly
+     * @param bool  $apiOnly
+     * @param bool  $withApi
      *
      * @return bool
      */
@@ -379,8 +379,8 @@ class CrudGenerator
     /**
      * Make a file if it doesnt exist.
      *
-     * @param  string $file
-     * @param  mixed $contents
+     * @param string $file
+     * @param mixed  $contents
      *
      * @return void
      */

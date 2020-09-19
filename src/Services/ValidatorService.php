@@ -58,8 +58,8 @@ class ValidatorService
             throw new Exception('The UI you selected is not suppported. It must be: bootstrap or semantic.', 1);
         }
 
-        if ((!is_null($command->option('schema')) && !$command->option('migration')) ||
-            (!is_null($command->option('relationships')) && !$command->option('migration'))
+        if ((!is_null($command->option('schema')) && !$command->option('migration')) 
+            || (!is_null($command->option('relationships')) && !$command->option('migration'))
         ) {
             throw new Exception('In order to use Schema or Relationships you need to use Migrations', 1);
         }

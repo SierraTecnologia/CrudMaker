@@ -26,10 +26,10 @@ class DatabaseGenerator
     /**
      * Create the migrations.
      *
-     * @param array                            $config
-     * @param string                           $section
-     * @param string                           $table
-     * @param array                            $splitTable
+     * @param array                                         $config
+     * @param string                                        $section
+     * @param string                                        $table
+     * @param array                                         $splitTable
      * @param \SierraTecnologia\CrudMaker\Console\CrudMaker $command
      *
      * @return bool
@@ -45,12 +45,14 @@ class DatabaseGenerator
                 $tableName = str_plural(strtolower(snake_case($table)));
             }
 
-            $command->callSilent('make:migration', [
+            $command->callSilent(
+                'make:migration', [
                 'name' => $migrationName,
                 '--table' => $tableName,
                 '--create' => true,
                 '--path' => $this->getMigrationsPath($config, true),
-            ]);
+                ]
+            );
 
             return true;
         } catch (Exception $e) {
@@ -61,7 +63,7 @@ class DatabaseGenerator
     /**
      * Create the Schema.
      *
-     * @param array $config
+     * @param array  $config
      * @param string $section
      * @param string $table
      * @param array  $splitTable

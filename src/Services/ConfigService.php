@@ -24,12 +24,12 @@ class ConfigService
     /**
      * Generate the basic config
      *
-     * @param  string $framework
-     * @param  string $appPath
-     * @param  string $basePath
-     * @param  string $appNamespace
-     * @param  string $table
-     * @param  array $options
+     * @param string $framework
+     * @param string $appPath
+     * @param string $basePath
+     * @param string $appNamespace
+     * @param string $table
+     * @param array  $options
      *
      * @return array
      */

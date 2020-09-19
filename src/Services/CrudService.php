@@ -63,7 +63,7 @@ class CrudService
      * @param string                                        $section
      * @param string                                        $table
      * @param array                                         $splitTable
-     * @param \SierraTecnologia\CrudMaker\Console\CrudMaker              $command
+     * @param \SierraTecnologia\CrudMaker\Console\CrudMaker $command
      */
     public function generateDB($config, $bar, $section, $table, $splitTable, $command)
     {
@@ -105,7 +105,7 @@ class CrudService
     /**
      * Generates a service provider.
      *
-     * @param  array $config
+     * @param array $config
      */
     public function generatePackageServiceProvider($config)
     {
@@ -115,7 +115,7 @@ class CrudService
     /**
      * Corrects the namespace for the view.
      *
-     * @param  array $config
+     * @param array $config
      */
     public function correctViewNamespace($config)
     {
