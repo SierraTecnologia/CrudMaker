@@ -2,7 +2,7 @@
 
 namespace _namespace_model_;
 
-use Support\Models\Base;
+use Pedreiro\Models\Base;
 
 class _camel_case_ extends CmsModel
 {
