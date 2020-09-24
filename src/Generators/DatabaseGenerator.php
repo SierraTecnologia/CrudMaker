@@ -120,7 +120,11 @@ class DatabaseGenerator
         return $parsedTable;
     }
 
-    public function getSchemaString($columnDetails, $columnDefinition, $columnDetailString)
+    /**
+     * @param string[] $columnDetails
+     * @param string[] $columnDefinition
+     */
+    public function getSchemaString(array $columnDetails, array $columnDefinition, string $columnDetailString)
     {
         if (strpos($columnDetails[0], '(')) {
             $injectedColumn = explode('(', $columnDetails[0]);

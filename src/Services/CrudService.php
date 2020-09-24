@@ -65,7 +65,7 @@ class CrudService
      * @param array                                         $splitTable
      * @param \SierraTecnologia\CrudMaker\Console\CrudMaker $command
      */
-    public function generateDB($config, $bar, $section, $table, $splitTable, $command)
+    public function generateDB(array $config, $bar, $section, $table, $splitTable, $command)
     {
         if ($config['options-migration']) {
             $this->dbGenerator->createMigration(

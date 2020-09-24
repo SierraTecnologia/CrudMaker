@@ -174,7 +174,7 @@ class TableService
      *
      * @return array
      */
-    public function getTableColumns($table, $allColumns = false)
+    public function getTableColumns($table, bool $allColumns = false)
     {
         $tableColumns = Schema::getColumnListing($table);
 

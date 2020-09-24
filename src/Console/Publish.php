@@ -55,7 +55,7 @@ class Publish extends Command
      *
      * @return bool|int
      */
-    public function copyDirectory($directory, $destination)
+    public function copyDirectory(string $directory, string $destination)
     {
         $files = $this->fileSystem->allFiles($directory);
         $fileDeployed = false;

@@ -6,14 +6,17 @@ use Illuminate\Filesystem\Filesystem;
 
 class FileService
 {
-    public function mkdir($path, $mode, $recursive)
+    /**
+     * @param true $recursive
+     */
+    public function mkdir(string $path, int $mode, bool $recursive)
     {
         if (! is_dir($path)) {
             mkdir($path, $mode, $recursive);
         }
     }
 
-    public function get($file)
+    public function get(string $file)
     {
         $filesystem = new Filesystem();
         $templateSource = config('crudmaker.template_source');
