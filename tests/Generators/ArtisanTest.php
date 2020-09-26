@@ -15,13 +15,15 @@ class ArtisanTest extends TestCase
 
         file_put_contents($this->destinationDir.'/routes/web.php', "<?php\n\n");
 
-        $this->artisan('crudmaker:new', [
+        $this->artisan(
+            'crudmaker:new', [
             'table' => 'books',
             '--migration' => true,
             '--api' => true,
             '--ui' => 'bootstrap',
             '--schema' => 'id:increments,name:string(200),price:decimal(10,4),ibsn:integer|unsigned|references(\'id\')|on(\'products\')|onDelete(\'restrict\')',
-        ]);
+            ]
+        );
     }
 
     public function testApi()

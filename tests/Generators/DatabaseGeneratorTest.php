@@ -13,9 +13,11 @@ class DatabaseGeneratorTest extends TestCase
         parent::setUp();
         $this->generator = new DatabaseGenerator();
         $this->command = Mockery::mock(\Illuminate\Console\Command::class);
-        $this->command->shouldReceive('callSilent')->andReturnUsing(function ($command, $data) {
-            \Artisan::call($command, $data);
-        });
+        $this->command->shouldReceive('callSilent')->andReturnUsing(
+            function ($command, $data) {
+                \Artisan::call($command, $data);
+            }
+        );
         $this->config = [
             '_path_migrations_' => base_path('database/migrations'),
             'relationships' => 'hasOne|App\Models\Author|author_id',

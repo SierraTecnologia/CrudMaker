@@ -23,9 +23,11 @@ class CrudServiceTest extends TestCase
         parent::setUp();
 
         $this->command = Mockery::mock(\Illuminate\Console\Command::class);
-        $this->command->shouldReceive('callSilent')->andReturnUsing(function ($command, $data) {
-            \Artisan::call($command, $data);
-        });
+        $this->command->shouldReceive('callSilent')->andReturnUsing(
+            function ($command, $data) {
+                \Artisan::call($command, $data);
+            }
+        );
         $this->bar = Mockery::mock('MockProgressBar')
             ->shouldReceive('advance')
             ->andReturn(true)
