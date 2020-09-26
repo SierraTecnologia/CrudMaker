@@ -57,8 +57,10 @@ class TestService
      * @param array $templates
      *
      * @return array
+     *
+     * @psalm-return list<mixed>
      */
-    public function getServiceTestTemplates($templates)
+    public function getServiceTestTemplates($templates): array
     {
         $filteredTemplates = [];
 
@@ -79,8 +81,10 @@ class TestService
      * @param string|array $withApi
      *
      * @return array
+     *
+     * @psalm-return list<mixed>
      */
-    public function getApiTestTemplates($templates, $apiOnly, $withApi)
+    public function getApiTestTemplates($templates, $apiOnly, $withApi): array
     {
         $filteredTemplates = [];
 
@@ -102,8 +106,10 @@ class TestService
      * @param string|array $apiOnly
      *
      * @return array
+     *
+     * @psalm-return list<mixed>
      */
-    public function getRegularTestTemplates($templates, $apiOnly)
+    public function getRegularTestTemplates($templates, $apiOnly): array
     {
         $filteredTemplates = [];
 

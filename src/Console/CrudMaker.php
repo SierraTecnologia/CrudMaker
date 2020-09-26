@@ -110,150 +110,13 @@ class CrudMaker extends Command
     protected $validator;
 
     /**
-     * CrudMaker Constructor.
-     *
-     * @param AppService       $appService
-     * @param CrudService      $crudService
-     * @param crudGenerator    $crudGenerator
-     * @param ConfigService    $configService
-     * @param ValidatorService $validator
-     */
-    public function __construct(
-        AppService $appService,
-        CrudService $crudService,
-        CrudGenerator $crudGenerator,
-        ConfigService $configService,
-        ValidatorService $validator
-    ) {
-        parent::__construct();
-
-        $this->appService = $appService;
-        $this->crudService = $crudService;
-        $this->crudGenerator = $crudGenerator;
-        $this->configService = $configService;
-        $this->validator = $validator;
-    }
-
-    /**
-     * Generate a CRUD stack.
-     *
-     * @return mixed
-     */
-    public function handle()
-    {
-        $section = '';
-        $splitTable = [];
-
-        $appPath = app()->path();
-        $basePath = app()->basePath();
-        $appNamespace = $this->appService->getAppNamespace();
-        $framework = ucfirst('Laravel');
-
-        if (stristr(get_class(app()), 'Lumen')) {
-            $framework = ucfirst('lumen');
-        }
-
-        $table = ucfirst(str_singular($this->argument('table')));
-
-        $this->validator->validateSchema($this);
-        $this->validator->validateOptions($this);
-
-        $options = [
-            'api' => $this->option('api'),
-            'apiOnly' => $this->option('apiOnly'),
-            'ui' => $this->option('ui'),
-            'serviceOnly' => $this->option('serviceOnly'),
-            'withFacade' => $this->option('withFacade'),
-            'withBaseService' => $this->option('withBaseService'),
-            'migration' => $this->option('migration'),
-            'schema' => $this->option('schema'),
-            'asPackage' => $this->option('asPackage'),
-            'relationships' => $this->option('relationships'),
-        ];
-
-        if ($this->option('asPackage')) {
-            $newPath = base_path($this->option('asPackage').'/'.str_plural($table));
-            if (!is_dir($newPath)) {
-                mkdir($newPath, 755, true);
-            }
-            $appPath = $newPath;
-            $basePath = $newPath;
-            $appNamespace = ucfirst($this->option('asPackage'));
-        }
-
-        $config = $this->configService->basicConfig(
-            $framework,
-            $appPath,
-            $basePath,
-            $appNamespace,
-            $table,
-            $options
-        );
-
-        if ($this->option('ui')) {
-            $config[$this->option('ui')] = true;
-        }
-
-        $config['schema'] = $this->option('schema');
-        $config['relationships'] = $this->option('relationships');
-        $config['template_source'] = $this->configService->getTemplateConfig($framework);
-
-        if (stristr($table, '_')) {
-            $splitTable = explode('_', $table);
-            $table = $splitTable[1];
-            $section = $splitTable[0];
-            $config = $this->configService->configASectionedCRUD($config, $section, $table, $splitTable);
-        } else {
-            $config = array_merge($config, app('config')->get('crudmaker.single', []));
-            $config = $this->configService->setConfig($config, $section, $table);
-        }
-
-        if ($this->option('asPackage')) {
-            $moduleDirectory = base_path($this->option('asPackage').'/'.str_plural($table));
-            $config = array_merge(
-                $config, [
-                '_path_package_' => $moduleDirectory,
-                '_path_facade_' => $moduleDirectory.'/Facades',
-                '_path_service_' => $moduleDirectory.'/Services',
-                '_path_model_' => $moduleDirectory.'/Models',
-                '_path_model_' => $moduleDirectory.'/Models',
-                '_path_controller_' => $moduleDirectory.'/Controllers',
-                '_path_views_' => $moduleDirectory.'/Views',
-                '_path_tests_' => $moduleDirectory.'/Tests',
-                '_path_request_' => $moduleDirectory.'/Requests',
-                '_path_routes_' => $moduleDirectory.'/Routes/web.php',
-                '_namespace_services_' => $appNamespace.'\\'.ucfirst(str_plural($table)).'\Services',
-                '_namespace_facade_' => $appNamespace.'\\'.ucfirst(str_plural($table)).'\Facades',
-                '_namespace_model_' => $appNamespace.'\\'.ucfirst(str_plural($table)).'\Models',
-                '_namespace_controller_' => $appNamespace.'\\'.ucfirst(str_plural($table)).'\Controllers',
-                '_namespace_request_' => $appNamespace.'\\'.ucfirst(str_plural($table)).'\Requests',
-                '_namespace_package_' => $appNamespace.'\\'.ucfirst(str_plural($table)),
-                ]
-            );
-
-            if (! is_dir($moduleDirectory.'/Routes')) {
-                mkdir($moduleDirectory.'/Routes');
-            }
-        }
-
-        $this->createCRUD($config, $section, $table, $splitTable);
-
-        if ($this->option('asPackage')) {
-            $this->createPackageServiceProvider($config);
-            $this->crudService->correctViewNamespace($config);
-        }
-
-        $this->info("\nYou may wish to add this as your testing database:\n");
-        $this->comment("'testing' => [ 'driver' => 'sqlite', 'database' => ':memory:', 'prefix' => '' ],");
-        $this->info("\n".'You now have a working CRUD for '.$table."\n");
-    }
-
-    /**
      * Generate a service provider for the new module.
      *
      * @param array $config
+     *
+     * @return void
      */
-    public function createPackageServiceProvider($config)
+    public function createPackageServiceProvider($config): void
     {
         $this->crudService->generatePackageServiceProvider($config);
     }
@@ -265,8 +128,10 @@ class CrudMaker extends Command
      * @param string $section
      * @param string $table
      * @param array  $splitTable
+     *
+     * @return void
      */
-    public function createCRUD($config, $section, $table, $splitTable)
+    public function createCRUD($config, $section, $table, $splitTable): void
     {
         $bar = $this->output->createProgressBar(7);
 
@@ -301,8 +166,10 @@ class CrudMaker extends Command
      * Generate a CRUD report.
      *
      * @param string $table
+     *
+     * @return void
      */
-    private function crudReport($table)
+    private function crudReport($table): void
     {
         $this->line("\n");
         $this->line('Built model...');

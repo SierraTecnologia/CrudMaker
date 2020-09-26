@@ -19,9 +19,9 @@ class ValidatorService
      *
      * @param \SierraTecnologia\CrudMaker\Console\CrudMaker $command
      *
-     * @return bool|Exception
+     * @return true
      */
-    public function validateSchema($command)
+    public function validateSchema($command): bool
     {
         if ($command->option('schema')) {
             $definitions = $this->calibrateDefinitions($command->option('schema'));
@@ -50,9 +50,9 @@ class ValidatorService
      *
      * @param \SierraTecnologia\CrudMaker\Console\CrudMaker $command
      *
-     * @return bool|Exception
+     * @return true
      */
-    public function validateOptions($command)
+    public function validateOptions($command): bool
     {
         if ($command->option('ui') && !in_array($command->option('ui'), ['bootstrap', 'semantic'])) {
             throw new Exception('The UI you selected is not suppported. It must be: bootstrap or semantic.', 1);

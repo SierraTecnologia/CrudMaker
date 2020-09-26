@@ -11,7 +11,9 @@ trait SchemaTrait
      *
      * @param string $schemaString
      *
-     * @return array
+     * @return false|string[]
+     *
+     * @psalm-return false|list<string>
      */
     public function calibrateDefinitions($schemaString)
     {

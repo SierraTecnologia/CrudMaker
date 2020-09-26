@@ -172,9 +172,11 @@ class TableService
      *
      * @param string $table Table name
      *
-     * @return array
+     * @return array[]
+     *
+     * @psalm-return array<array-key, array{type: mixed}>
      */
-    public function getTableColumns($table, bool $allColumns = false)
+    public function getTableColumns($table, bool $allColumns = false): array
     {
         $tableColumns = Schema::getColumnListing($table);
 

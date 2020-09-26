@@ -7,24 +7,18 @@ use SierraTecnologia\CrudMaker\Generators\DatabaseGenerator;
 
 class CrudService
 {
-    protected $crudGenerator;
-    protected $dbGenerator;
-
-    public function __construct(
-        CrudGenerator $crudGenerator,
-        DatabaseGenerator $dbGenerator
-    ) {
-        $this->crudGenerator = $crudGenerator;
-        $this->dbGenerator = $dbGenerator;
-    }
+    protected CrudGenerator $crudGenerator;
+    protected DatabaseGenerator $dbGenerator;
 
     /**
      * Generate core elements.
      *
      * @param array                                         $config
      * @param \Symfony\Component\Console\Helper\ProgressBar $bar
+     *
+     * @return void
      */
-    public function generateCore($config, $bar)
+    public function generateCore($config, $bar): void
     {
         $this->crudGenerator->createModel($config);
         $this->crudGenerator->createService($config);
@@ -41,8 +35,10 @@ class CrudService
      *
      * @param array                                         $config
      * @param \Symfony\Component\Console\Helper\ProgressBar $bar
+     *
+     * @return void
      */
-    public function generateAppBased($config, $bar)
+    public function generateAppBased($config, $bar): void
     {
         if (!$config['options-serviceOnly'] && !$config['options-apiOnly']) {
             $this->crudGenerator->createController($config);
@@ -64,8 +60,10 @@ class CrudService
      * @param string                                        $table
      * @param array                                         $splitTable
      * @param \SierraTecnologia\CrudMaker\Console\CrudMaker $command
+     *
+     * @return void
      */
-    public function generateDB(array $config, $bar, $section, $table, $splitTable, $command)
+    public function generateDB(array $config, $bar, $section, $table, $splitTable, $command): void
     {
         if ($config['options-migration']) {
             $this->dbGenerator->createMigration(
@@ -93,8 +91,10 @@ class CrudService
      *
      * @param array                                         $config
      * @param \Symfony\Component\Console\Helper\ProgressBar $bar
+     *
+     * @return void
      */
-    public function generateAPI($config, $bar)
+    public function generateAPI($config, $bar): void
     {
         if ($config['options-api'] || $config['options-apiOnly']) {
             $this->crudGenerator->createApi($config);
@@ -106,8 +106,10 @@ class CrudService
      * Generates a service provider.
      *
      * @param array $config
+     *
+     * @return void
      */
-    public function generatePackageServiceProvider($config)
+    public function generatePackageServiceProvider($config): void
     {
         $this->crudGenerator->generatePackageServiceProvider($config);
     }
@@ -116,8 +118,10 @@ class CrudService
      * Corrects the namespace for the view.
      *
      * @param array $config
+     *
+     * @return void
      */
-    public function correctViewNamespace($config)
+    public function correctViewNamespace($config): void
     {
         $controllerFile = $config['_path_controller_'].'/'.$config['_ucCamel_casePlural_'].'Controller.php';
 

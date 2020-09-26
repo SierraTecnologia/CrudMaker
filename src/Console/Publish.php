@@ -26,26 +26,6 @@ class Publish extends Command
     protected $fileSystem;
 
     /**
-     * Publish constructor.
-     */
-    public function __construct()
-    {
-        parent::__construct();
-        $this->fileSystem = new Filesystem();
-    }
-
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
-    public function handle()
-    {
-        $this->publishConfig();
-        $this->publishTemplates();
-    }
-
-    /**
      * Copy a directory and its content.
      *
      * @param $directory
@@ -70,9 +50,11 @@ class Publish extends Command
     }
 
     /**
-     *  Publish config files for Lumen.
+     * Publish config files for Lumen.
+     *
+     * @return void
      */
-    private function publishConfig()
+    private function publishConfig(): void
     {
         if (!file_exists(getcwd().'/config/crudmaker.php')) {
             $this->copyDirectory(__DIR__.'/../../config', getcwd().'/config');
@@ -83,9 +65,11 @@ class Publish extends Command
     }
 
     /**
-     *  Publish templates files for Lumen.
+     * Publish templates files for Lumen.
+     *
+     * @return void
      */
-    private function publishTemplates()
+    private function publishTemplates(): void
     {
         if (!$this->fileSystem->isDirectory(getcwd().'/resources/crudmaker')) {
             $this->copyDirectory(__DIR__.'/../Templates/Lumen', getcwd().'/resources/crudmaker');

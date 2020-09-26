@@ -49,23 +49,11 @@ class CrudGenerator
     protected $modelService;
 
     /**
-     * Create new CrudGenerator instance.
-     */
-    public function __construct()
-    {
-        $this->filesystem = new Filesystem();
-        $this->fileService = new FileService();
-        $this->tableService = new TableService();
-        $this->testService = new TestService();
-        $this->modelService = new ModelService();
-    }
-
-    /**
      * Create the controller.
      *
      * @param array $config
      *
-     * @return bool
+     * @return null
      */
     public function createController($config)
     {
@@ -87,7 +75,7 @@ class CrudGenerator
      *
      * @param array $config
      *
-     * @return bool
+     * @return null
      */
     public function createModel($config)
     {
@@ -116,7 +104,7 @@ class CrudGenerator
      *
      * @param array $config
      *
-     * @return bool
+     * @return null
      */
     public function createRequest($config)
     {
@@ -131,7 +119,7 @@ class CrudGenerator
         }
 
         $createRequest = $this->putIfNotExists($config['_path_request_'].'/'.$config['_camel_case_'].'CreateRequest.php', $createRequest);
-        $updateRequest = $this->putIfNotExists($config['_path_request_'].'/'.$config['_camel_case_'].'UpdateRequest.php', $updateRequest);
+        $this->putIfNotExists($config['_path_request_'].'/'.$config['_camel_case_'].'UpdateRequest.php', $updateRequest);
 
         return $createRequest;
     }
@@ -141,7 +129,7 @@ class CrudGenerator
      *
      * @param array $config
      *
-     * @return bool
+     * @return null
      */
     public function createService($config)
     {
@@ -149,6 +137,7 @@ class CrudGenerator
 
         $service = $this->fileService->get($config['template_source'].'/Service.txt');
 
+        $baseService = null;
         if ($config['options-withBaseService'] ?? false) {
             $baseService = $this->fileService->get($config['template_source'].'/BaseService.txt');
             $service = $this->fileService->get($config['template_source'].'/ExtendedService.txt');
@@ -175,9 +164,9 @@ class CrudGenerator
      *
      * @param array $config
      *
-     * @return bool
+     * @return true
      */
-    public function createRoutes($config)
+    public function createRoutes($config): bool
     {
         $routesMaster = $config['_path_routes_'];
 
@@ -205,9 +194,9 @@ class CrudGenerator
      *
      * @param array $config
      *
-     * @return bool
+     * @return int
      */
-    public function createFactory($config)
+    public function createFactory($config): int
     {
         $this->fileService->mkdir(dirname($config['_path_factory_']), 0777, true);
 
@@ -231,7 +220,7 @@ class CrudGenerator
      *
      * @param array $config
      *
-     * @return bool
+     * @return null
      */
     public function createFacade($config)
     {
@@ -253,7 +242,7 @@ class CrudGenerator
      *
      * @param array $config
      *
-     * @return bool
+     * @return null
      */
     public function generatePackageServiceProvider($config)
     {
@@ -310,9 +299,9 @@ class CrudGenerator
      *
      * @param array $config
      *
-     * @return bool
+     * @return false|null
      */
-    public function createViews($config)
+    public function createViews($config): ?bool
     {
         $this->fileService->mkdir($config['_path_views_'].'/'.$config['_lower_casePlural_'], 0777, true);
 
@@ -345,7 +334,7 @@ class CrudGenerator
      *
      * @param array $config
      *
-     * @return bool
+     * @return null
      */
     public function createApi($config)
     {

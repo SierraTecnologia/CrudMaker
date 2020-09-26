@@ -14,14 +14,8 @@ class DatabaseGenerator
 {
     use SchemaTrait;
 
-    protected $filesystem;
-    protected $fileService;
-
-    public function __construct()
-    {
-        $this->filesystem = new Filesystem();
-        $this->fileService = new FileService();
-    }
+    protected Filesystem $filesystem;
+    protected FileService $fileService;
 
     /**
      * Create the migrations.
@@ -32,9 +26,9 @@ class DatabaseGenerator
      * @param array                                         $splitTable
      * @param \SierraTecnologia\CrudMaker\Console\CrudMaker $command
      *
-     * @return bool
+     * @return true
      */
-    public function createMigration($config, $section, $table, $splitTable, $command)
+    public function createMigration($config, $section, $table, $splitTable, $command): bool
     {
         try {
             if (!empty($section)) {
@@ -123,8 +117,10 @@ class DatabaseGenerator
     /**
      * @param string[] $columnDetails
      * @param string[] $columnDefinition
+     *
+     * @return string
      */
-    public function getSchemaString(array $columnDetails, array $columnDefinition, string $columnDetailString)
+    public function getSchemaString(array $columnDetails, array $columnDefinition, string $columnDetailString): string
     {
         if (strpos($columnDetails[0], '(')) {
             $injectedColumn = explode('(', $columnDetails[0]);
@@ -141,9 +137,9 @@ class DatabaseGenerator
      *
      * @param array $columnDetails
      *
-     * @return string
+     * @return null|string
      */
-    public function createColumnDetailString($columnDetails)
+    public function createColumnDetailString($columnDetails): ?string
     {
         $columnDetailString = '';
 

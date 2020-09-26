@@ -12,16 +12,6 @@ class ConfigService
     protected $appService;
 
     /**
-     * CrudMaker Constructor.
-     *
-     * @param AppService $appService
-     */
-    public function __construct(AppService $appService)
-    {
-        $this->appService = $appService;
-    }
-
-    /**
      * Generate the basic config
      *
      * @param string $framework
@@ -31,9 +21,11 @@ class ConfigService
      * @param string $table
      * @param array  $options
      *
-     * @return array
+     * @return (false|mixed|string)[]
+     *
+     * @psalm-return array{framework: string, bootstrap: false, semantic: false, template_source: string, _sectionPrefix_: string, _sectionTablePrefix_: string, _sectionRoutePrefix_: string, _sectionNamespace_: string, _path_facade_: string, _path_service_: string, _path_model_: string, _path_controller_: string, _path_api_controller_: string, _path_views_: string, _path_tests_: string, _path_request_: string, _path_routes_: string, _path_api_routes_: string, _path_migrations_: string, _path_factory_: string, routes_prefix: string, routes_suffix: string, _app_namespace_: string, _namespace_services_: string, _namespace_facade_: string, _namespace_model_: string, _namespace_controller_: string, _namespace_api_controller_: string, _namespace_request_: string, _table_name_: mixed, _lower_case_: string, _lower_casePlural_: mixed, _camel_case_: string, _camel_casePlural_: mixed, _ucCamel_casePlural_: string, _plain_space_textLower_: string, _plain_space_textFirst_: string, _snake_case_: mixed, _snake_casePlural_: mixed, options-api: mixed, options-apiOnly: mixed, options-ui: mixed, options-serviceOnly: mixed, options-withFacade: mixed, options-withBaseService: mixed, options-migration: mixed, options-schema: mixed, options-relationships: mixed}
      */
-    public function basicConfig($framework, $appPath, $basePath, $appNamespace, $table, $options)
+    public function basicConfig($framework, $appPath, $basePath, $appNamespace, $table, $options): array
     {
         $config = [
             'framework'                  => $framework,

@@ -6,7 +6,7 @@ use SierraTecnologia\CrudMaker\Services\TableService;
 
 class ModelService
 {
-    protected $tableService;
+    protected TableService $tableService;
 
     public function __construct()
     {

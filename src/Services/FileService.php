@@ -8,15 +8,17 @@ class FileService
 {
     /**
      * @param true $recursive
+     *
+     * @return void
      */
-    public function mkdir(string $path, int $mode, bool $recursive)
+    public function mkdir(string $path, int $mode, bool $recursive): void
     {
         if (! is_dir($path)) {
             mkdir($path, $mode, $recursive);
         }
     }
 
-    public function get(string $file)
+    public function get(string $file): string
     {
         $filesystem = new Filesystem();
         $templateSource = config('crudmaker.template_source');
