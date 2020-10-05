@@ -211,11 +211,11 @@ class CrudMaker extends Command
         if ($this->option('asPackage')) {
             $moduleDirectory = base_path($this->option('asPackage').'/'.str_plural($table));
             $config = array_merge(
-                $config, [
+                $config,
+                [
                 '_path_package_' => $moduleDirectory,
                 '_path_facade_' => $moduleDirectory.'/Facades',
                 '_path_service_' => $moduleDirectory.'/Services',
-                '_path_model_' => $moduleDirectory.'/Models',
                 '_path_model_' => $moduleDirectory.'/Models',
                 '_path_controller_' => $moduleDirectory.'/Controllers',
                 '_path_views_' => $moduleDirectory.'/Views',
