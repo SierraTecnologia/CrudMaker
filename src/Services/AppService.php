@@ -12,7 +12,7 @@ class AppService
 
         foreach (((array) data_get($composer, 'autoload.psr-4')) as $namespace => $path) {
             foreach ((array) $path as $pathChoice) {
-                // dd(realpath(app()->path()), realpath(base_path().'/'.$pathChoice));
+                // dd('AppService', realpath(app()->path()), realpath(base_path().'/'.$pathChoice));
                 if (realpath(app()->path()) == realpath(base_path().'/'.$pathChoice)) {
                     return $namespace;
                 }
